@@ -1,0 +1,10 @@
+transformers
+onnxruntime
+# uncomment if you want to use GPU
+# onnxruntime-gpu
+numpy
+torch
+einops
+pandas
+pymupdf
+scikit-learn
