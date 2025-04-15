@@ -26,7 +26,7 @@ To achieve good recommendations, we compared naive, machine learning, and deep l
 - [Result Comparison](#result-comparison)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
-- [Ethic Statement](#ethic-statement)
+- [Ethics Statement](#ethics-statement)
 - [License](#license)
 
 ## Installation
