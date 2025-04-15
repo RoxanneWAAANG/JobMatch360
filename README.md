@@ -55,6 +55,38 @@ python naive.py
 ## Machine Learning Approach
 Machine learning approach generate job embeddings using TF-IDF
 
+### Step 1: Merge and Clean Data
+
+Run the `merge_clean_data.py` script to merge and clean the datasets:
+
+```bash
+python merge_clean_data.py
+```
+
+This script creates a file named `merged_data.csv`.
+
+### Step 2: Generate Job Embeddings
+
+Generate TF-IDF embeddings from the merged dataset by running:
+
+```bash
+python generate_embeddings.py
+```
+
+This creates two files:
+- `checkpoints/job_embeddings.pkl` – The saved TF-IDF embeddings.
+- `checkpoints/tfidf_vectorizer.pkl` – The saved TF-IDF vectorizer model.
+
+### Step 3: Run the Content-Based Recommender
+
+Test the recommender system with a sample resume by running:
+
+```bash
+python content_based_recommender.py
+```
+
+The script loads the merged data and the saved embeddings, then outputs the top job recommendations based on the provided resume text.
+
 ## Deep Learning Approach
 
 Deep learning approach uses advanced NLP techniques to match a job seeker's resume to relevant job postings. It employs a two-stage recommendation process:
