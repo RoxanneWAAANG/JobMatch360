@@ -2,6 +2,7 @@
 import pandas as pd
 import pickle
 from sklearn.metrics.pairwise import cosine_similarity
+import pdfplumber
 
 def load_embeddings_and_vectorizer(embeddings_path, vectorizer_path):
     with open(embeddings_path, 'rb') as f:
@@ -9,6 +10,16 @@ def load_embeddings_and_vectorizer(embeddings_path, vectorizer_path):
     with open(vectorizer_path, 'rb') as f:
         tfidf = pickle.load(f)
     return job_embeddings, tfidf
+
+def extract_text_from_pdf(pdf_path):
+    """
+    Extracts text from a PDF file using pdfplumber.
+    """
+    text = ""
+    with pdfplumber.open(pdf_path) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text()  # Extracts text from each page
+    return text
 
 def recommend_jobs(user_resume, df, job_embeddings, tfidf, top_n=5):
     """
@@ -32,7 +43,7 @@ def recommend_jobs(user_resume, df, job_embeddings, tfidf, top_n=5):
 
 if __name__ == "__main__":
     # Load the merged job data
-    merged_data_path = "dataset/merged_common_subset_100.csv"
+    merged_data_path = "dataset/merged_jobs.csv"
     df = pd.read_csv(merged_data_path)
     
     # Load the saved embeddings and TF-IDF vectorizer
@@ -40,13 +51,14 @@ if __name__ == "__main__":
     vectorizer_path = "checkpoints/tfidf_vectorizer.pkl"
     job_embeddings, tfidf = load_embeddings_and_vectorizer(embeddings_path, vectorizer_path)
     
-    # Example resume text (customize this based on your use case)
-    sample_resume = """
-    Experienced hospitality manager with expertise in customer service, restaurant management,
-    team supervision, and operations. Skilled in training, scheduling, and inventory management.
-    """
+    # Example PDF resume path
+    pdf_resume_path = "Roxanne_s_Resume__MLE_.pdf"
     
-    # Get top 5 job recommendations based on the sample resume
-    recommended = recommend_jobs(sample_resume, df, job_embeddings, tfidf, top_n=5)
-    print("Top job recommendations based on the sample resume:")
+    # Extract the text from the PDF resume
+    extracted_resume = extract_text_from_pdf(pdf_resume_path)
+    
+    # Get top 5 job recommendations based on the extracted resume text
+    recommended = recommend_jobs(extracted_resume, df, job_embeddings, tfidf, top_n=5)
+    
+    print("Top job recommendations based on the PDF resume:")
     print(recommended)

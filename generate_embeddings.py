@@ -27,7 +27,7 @@ def generate_job_embeddings(merged_data_path, embeddings_output_path, vectorizer
     print(f"TF-IDF vectorizer saved to {vectorizer_output_path}")
 
 if __name__ == "__main__":
-    merged_data_path = "dataset/merged_common_subset_100.csv"
+    merged_data_path = "dataset/merged_jobs.csv"
     embeddings_output_path = "checkpoints/job_embeddings.pkl"
     vectorizer_output_path = "checkpoints/tfidf_vectorizer.pkl"
     
