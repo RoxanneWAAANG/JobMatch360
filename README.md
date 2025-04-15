@@ -75,7 +75,11 @@ The system:
    git clone https://github.com/RoxanneWAAANG/JobMatch360.git
    cd JobMatch360
    ```
+## Naive Approach
 
+This Naive Approach will randomly select 5 jobs from the dataset, comparing the job skills + summary to our sample resume text via cosine similarity.
+
+To run, run `naive.py`.
 
 ## Machine Learning Approach
 
