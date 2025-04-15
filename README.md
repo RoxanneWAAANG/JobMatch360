@@ -60,18 +60,28 @@ The system:
 .
 ├── LICENSE
 ├── README.md
-├── checkpoints
-│   ├── job_embeddings.pkl
-│   └── tfidf_vectorizer.pkl
-├── content_based_recommender.py
+├── Machine_Learning
+    ├── content_based_recommender.py
+    └── generate_embeddings.py
+    └── merge_clean_data.py
+├── Naive
+    ├── naive.py
+├── app
+    ├── app.py
+    └── embedding.py
+    └── filter_jobs.py
+    └── recommend.py
+    └── resume_parser.py
+    └── tfidf_match.py
+├── dl
+    └── embedding.py
+    └── filter_jobs.py
+    └── recommend.py
+    └── resume_parser.py
+    └── tfidf_match.py
+    └── jina-embeddings-v3/onnx/
 ├── dataset
-│   ├── create_subset.ipynb
-│   ├── job_skills.csv
-│   ├── job_summary.csv
-│   ├── linkedin_job_postings.csv
-│   └── merged_common_subset_100.csv
-├── generate_embeddings.py
-└── merge_clean_data.py
+│   ├── merged_common_subset_100.csv
 ```
 
 ## Installation
