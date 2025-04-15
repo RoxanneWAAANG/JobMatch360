@@ -1,7 +1,9 @@
 # JobMatch360-Career-Recommendation-System
 
 Demo: https://huggingface.co/spaces/reinashi/JobMatch360
+
 Dataset: https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024?select=linkedin_job_postings.csv
+
 Embedding Model: https://huggingface.co/jinaai/jina-embeddings-v3
 
 # JobMatch360
