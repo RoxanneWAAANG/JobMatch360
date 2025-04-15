@@ -176,6 +176,11 @@ class JobRecommender:
         results = pd.DataFrame([(j[0], j[1], j[2]) for j in top_matches], 
                               columns=['job_id', 'similarity', 'job_title'])
         results['rank'] = range(1, len(results) + 1)
+
+        # Add job_link, job_location, company to the results
+        results['company'] = jobs_df.loc[results['job_id'], 'company'].values
+        results['job_location'] = jobs_df.loc[results['job_id'], 'job_location'].values
+        results['job_link'] = jobs_df.loc[results['job_id'], 'job_link'].values
         
         # Save detailed results to JSON file
         detailed_results = {

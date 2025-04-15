@@ -13,8 +13,9 @@ def filter_jobs(job_location=None, max_rows=100000):
     """
     # Load only necessary columns from linkedin_job_postings.csv
     print("Loading job postings metadata...")
+    cols = ['job_link', 'job_title', 'job_location', 'got_summary', 'company']
     postings_df = pd.read_csv('data/linkedin_job_postings.csv', 
-                             usecols=['job_link', 'job_title', 'job_location', 'got_summary'])
+                             usecols=cols)
     
     # Filter for jobs with descriptions
     print("Filtering for jobs with descriptions...")
@@ -51,7 +52,7 @@ def filter_jobs(job_location=None, max_rows=100000):
     result_df = pd.merge(postings_df, summaries_df, on='job_link')
     
     # Select only the columns we need
-    result_df = result_df[['job_title', 'job_summary']]
+    result_df = result_df[['job_title', 'job_summary', 'job_link', 'company', 'job_location']]
     
     # Random sample if there are too many rows
     if len(result_df) > max_rows:
