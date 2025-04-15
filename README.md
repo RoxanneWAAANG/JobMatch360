@@ -8,6 +8,13 @@ Embedding Model: https://huggingface.co/jinaai/jina-embeddings-v3
 
 # JobMatch360
 
+Despite the fact that current job boards such as LinkedIn and Glassdoor provide recommendations based off of the users, it is not an ideal system
+Users will still have to view the exact job requirements, and are even encouraged to tailor their resume to make sure they can show themselves as an ideal candidate (when most often than not the main goal is to hit those keywords to not get auto flagged by the system)
+We think this is the reverse of how it should be.
+
+Our approach to a recommendation system considers the combination of job skills and job summaries and seeks to match it more exact towards your resume
+We are not tailoring our resumes to match jobs, we are tailoring the jobs to match the resume.
+
 JobMatch360 is a LinkedIn-style career recommendation system that leverages machine learning techniques to match users with relevant job opportunities based on their resume or profile. The project demonstrates how to merge and clean data from multiple sources, generate job embeddings using TF-IDF, and build a basic content-based recommender system.
 
 ## Table of Contents
@@ -79,7 +86,10 @@ The system:
 
 This Naive Approach will randomly select 5 jobs from the dataset, comparing the job skills + summary to our sample resume text via cosine similarity.
 
-To run, run `naive.py`.
+To run, run 
+```bash
+python naive.py
+```
 
 ## Machine Learning Approach
 
